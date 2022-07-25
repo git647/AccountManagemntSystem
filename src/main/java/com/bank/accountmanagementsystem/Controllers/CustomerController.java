@@ -1,4 +1,4 @@
-package com.bank.accountmanagement.Controllers;
+package com.bank.accountmanagementsystem.Controllers;
 
 import java.util.HashMap;
 import java.util.Set;
@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bank.accountmanagement.Services.CustomerService;
+import com.bank.accountmanagementsystem.Services.CustomerService;
+
 
 @RestController
 public class CustomerController {
