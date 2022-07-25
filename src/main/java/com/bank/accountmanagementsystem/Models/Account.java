@@ -14,7 +14,7 @@ public class Account {
 	private Customer customer;
 	@Column
 	private double currentBalance;
-	@OneToMany(cascade = {CascadeType.ALL})
+//	@OneToMany(cascade = {CascadeType.ALL})
 //	private List<Transaction> transactions;
 	@Column
 	private double dailyLimit;

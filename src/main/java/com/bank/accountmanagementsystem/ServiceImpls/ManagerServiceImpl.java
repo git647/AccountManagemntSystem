@@ -45,7 +45,6 @@ public class ManagerServiceImpl implements ManagerService{
 		return account;
 	}
 
-}
 	public Customer createNewCustomer(Customer customer) throws Exception{
 		try {
 			customer = customerRepository.save(customer);
@@ -54,5 +53,5 @@ public class ManagerServiceImpl implements ManagerService{
 		}
 		return customer;
 	}
-
 }
+
