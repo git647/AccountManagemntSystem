@@ -46,3 +46,13 @@ public class ManagerServiceImpl implements ManagerService{
 	}
 
 }
+	public Customer createNewCustomer(Customer customer) throws Exception{
+		try {
+			customer = customerRepository.save(customer);
+		}catch(Exception e){
+			throw e;
+		}
+		return customer;
+	}
+
+}
