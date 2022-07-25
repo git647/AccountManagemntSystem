@@ -1,4 +1,4 @@
-package com.bank.accountmanagement.Models;
+package com.bank.accountmanagementsystem.Models;
 
 import java.time.LocalDateTime;
 
