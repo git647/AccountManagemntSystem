@@ -1,5 +1,7 @@
 package com.bank.accountmanagementsystem.Services;
 
-public class AccCreationEmailService {
+public interface AccCreationEmailService {
+	
+	public void sendEmail(String emailUserName, String emailPassword, String customerEmail);
 
 }
