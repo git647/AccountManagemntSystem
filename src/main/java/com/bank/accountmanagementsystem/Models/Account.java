@@ -1,7 +1,17 @@
-package com.bank.accountmanagementsystem.Models;
+package com.bank.accountmanagement.Models;
 
-//import java.util.List;
-import javax.persistence.*;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
+
 
 @Entity
 public class Account {
@@ -14,8 +24,8 @@ public class Account {
 	private Customer customer;
 	@Column
 	private double currentBalance;
-//	@OneToMany(cascade = {CascadeType.ALL})
-//	private List<Transaction> transactions;
+	@OneToMany(cascade = {CascadeType.ALL})
+	private List<Transaction> transactions;
 	@Column
 	private double dailyLimit;
 
@@ -29,9 +39,9 @@ public class Account {
 	}
 
 
-//	public void setTransactions(List<Transaction> transactions) {
-//		this.transactions = transactions;
-//	}
+	public void setTransactions(List<Transaction> transactions) {
+		this.transactions = transactions;
+	}
 
 
 	public Account(long accountNumber, Customer customer, double currentBalance) {
@@ -80,7 +90,7 @@ public class Account {
 	}
 
 
-//	public List<Transaction> getTransactions() {
-//		return transactions;
-//	}
+	public List<Transaction> getTransactions() {
+		return transactions;
+	}
 }
