@@ -19,6 +19,19 @@ public class TransactionController {
 	TransactionService transactionService;
 
 //WITHDRAW -- shefali
+	@RequestMapping("api/transaction/getCurrentBalance/{id}")
+	public Long getCurrentBalance(@PathVariable long id) {
+		
+		Long currentBalance = transactionService.getCurrentBalance(id);
+	    return currentBalance; 
+	}
+	
+	@GetMapping("api/transaction/withdraw/{id}/{amount}")
+	public Long updateCurrentBalance(@PathVariable long id, @PathVariable long amount) {
+		
+		Long currentBalance = transactionService.DeductMoney(id,amount);
+	    return currentBalance;
+	}
 	
 //DEPOSIT -- muskan
 	
