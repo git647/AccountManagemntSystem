@@ -1,4 +1,4 @@
-package com.bank.accountmanagement.ServiceImpls;
+package com.bank.accountmanagementsystem.ServiceImpls;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -9,9 +9,9 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bank.accountmanagement.Models.Account;
-import com.bank.accountmanagement.Repositories.AccountRepository;
-import com.bank.accountmanagement.Services.CustomerService;
+import com.bank.accountmanagementsystem.Models.Account;
+import com.bank.accountmanagementsystem.Repositories.AccountRepository;
+import com.bank.accountmanagementsystem.Services.CustomerService;
 
 @Service
 public class CustomerServiceImpl implements CustomerService{

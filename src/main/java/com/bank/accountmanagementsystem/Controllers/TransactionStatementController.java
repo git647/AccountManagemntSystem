@@ -1,4 +1,4 @@
-package com.bank.accountmanagement.Controllers;
+package com.bank.accountmanagementsystem.Controllers;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -24,14 +24,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bank.accountmanagement.Models.Transaction;
-import com.bank.accountmanagement.Services.Transactionstatementservice;
+import com.bank.accountmanagementsystem.Models.Transaction;
+import com.bank.accountmanagementsystem.Services.TransactionStatementService;
 
 @RestController
-public class TransactionStatement {
+public class TransactionStatementController {
 	
 	@Autowired
-	private Transactionstatementservice transactionstatement;
+	private TransactionStatementService transactionstatement;
 	private static final String[] HEADERS = { "Transaction Id", "Current Balance", "Date Time", "Sub Type",
             "Transaction Ref Number", "Transaction Type" };
     private static final CSVFormat FORMAT = CSVFormat.DEFAULT.withHeader(HEADERS);
