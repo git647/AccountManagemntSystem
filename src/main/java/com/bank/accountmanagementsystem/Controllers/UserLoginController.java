@@ -22,4 +22,10 @@ public class UserLoginController {
 	{
 		return userLoginService.verifyUserCredential(userId, password, roleId);
 	}
+	
+	@PutMapping("api/user/update-user-credentials")
+	public ResponseEntity<Object> updateUserCredential(@RequestParam(required = true) String userId,@RequestParam(required = true) String password)
+	{
+		return userLoginService.updateUserCredential(userId, password);
+	}
 }
