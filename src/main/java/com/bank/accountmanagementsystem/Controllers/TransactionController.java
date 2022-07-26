@@ -35,6 +35,12 @@ public class TransactionController {
 	
 //DEPOSIT -- muskan
 	
+	@PostMapping("api/transaction/deposit/{depositID}/{amount}")
+	public String DepositMoney(@PathVariable long depositID,@PathVariable double amount)
+	{
+		return transactionService.Deposit(depositID,amount);
+	}
+	
 	
 //TRANSFER -- shivam
 	@PostMapping(value = "api/transaction/transfer",consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.TEXT_PLAIN_VALUE)
