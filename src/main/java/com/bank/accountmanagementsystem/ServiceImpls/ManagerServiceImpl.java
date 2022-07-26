@@ -53,5 +53,25 @@ public class ManagerServiceImpl implements ManagerService{
 		}
 		return customer;
 	}
+
+	
+	public ResponseEntity<Object> verifyPanCard(String panCardNumber)
+	{
+		System.out.println(panCardNumber);
+		Customer customer = customerRepository.findCustomerByPanCard(panCardNumber);
+		HashMap<String,String> result = new HashMap<String, String>();
+		if(customer != null)
+		{
+			result.put("message","Account exists");
+			return new ResponseEntity<>(result,HttpStatus.OK);
+		}
+		else 
+		{
+			result.put("message","Account doest not exists");
+			return new ResponseEntity<>(result,HttpStatus.NOT_FOUND);
+		}
+	}
+
+
 }
 

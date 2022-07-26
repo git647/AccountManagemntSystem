@@ -8,5 +8,5 @@ import com.bank.accountmanagementsystem.Models.Customer;
 public interface ManagerService {
 	Customer createNewCustomer(Customer customer) throws Exception;
 	Account createNewAccount(int customerId) throws Exception;
-//	public ResponseEntity<Object> verifyPanCard(String panCardNumber);
+	public ResponseEntity<Object> verifyPanCard(String panCardNumber);
 }
