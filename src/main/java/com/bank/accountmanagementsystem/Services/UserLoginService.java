@@ -7,7 +7,7 @@ import com.bank.accountmanagementsystem.Models.User;
 public interface UserLoginService {
 
 	public User createNewUserCredentials();
-	
 	public ResponseEntity<Object> verifyUserCredential(String userId, String password, int roleId);
+	public ResponseEntity<Object> updateUserCredential(String userId, String password);
 
 }
