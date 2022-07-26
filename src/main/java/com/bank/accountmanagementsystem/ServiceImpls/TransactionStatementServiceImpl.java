@@ -1,4 +1,4 @@
-package com.bank.accountmanagement.ServiceImpls;
+package com.bank.accountmanagementsystem.ServiceImpls;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,15 +7,15 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bank.accountmanagement.Models.Account;
-import com.bank.accountmanagement.Models.Transaction;
-import com.bank.accountmanagement.Repositories.AccountRepository;
-import com.bank.accountmanagement.Repositories.TransactionRepository;
-import com.bank.accountmanagement.Services.Transactionstatementservice;
+import com.bank.accountmanagementsystem.Models.Account;
+import com.bank.accountmanagementsystem.Models.Transaction;
+import com.bank.accountmanagementsystem.Repositories.AccountRepository;
+import com.bank.accountmanagementsystem.Repositories.TransactionRepository;
+import com.bank.accountmanagementsystem.Services.TransactionStatementService;
 
 
 @Service
-public class Transactionstatementserviceimpl implements Transactionstatementservice{
+public class TransactionStatementServiceImpl implements TransactionStatementService{
 
 	@Autowired
 	private AccountRepository accountRepository;
