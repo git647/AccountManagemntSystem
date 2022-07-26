@@ -1,4 +1,4 @@
-package com.bank.accountmanagement.Controllers;
+package com.bank.accountmanagementsystem.Controllers;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bank.accountmanagement.Service.TransactionService;
+import com.bank.accountmanagementsystem.Services.TransactionService;
 
 @RestController
 public class TransactionController {
