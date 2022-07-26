@@ -14,29 +14,30 @@ import com.bank.accountmanagementsystem.constants.SystemConstants;
 import com.bank.accountmanagementsystem.services.CustomerService;
 
 /**
- * CustomerController (define the meaning of the class)
+ * CustomerController - Retrieves the customer details on providing their Account Number.
  * 
- * @author Nishad
+ * @author Ankit
  *
  */
 @RestController
 public class CustomerController {
-	/**
-	 * customerService
-	 */
+
 	@Autowired
 	private CustomerService customerService;
 
 	/**
-	 * getAccountsByCustId (this is responsible to give the customer ....)
+	 * getAccountsByCustId (Fetch the customer details)
 	 * 
-	 * @param id
-	 * @return
+	 * @param  id - Customer ID
+	 * @return detail of customer matching particular id if present
+	 * 
 	 */
+	
 	@GetMapping(SystemConstants.GET_ACCOUNTS_BY_CUSTOMERID)
 	public ResponseEntity<Object> getAccountsByCustId(@PathVariable int id) {
 		Set<HashMap<String, String>> resultSet = customerService.getAccountDetailsByCustomerId(id);
 		HashMap<String, Object> result = new HashMap<String, Object>();
+		//To check if the result set is empty or not
 		if (resultSet.isEmpty()) {
 			result.put("message", "accounts not found for " + Integer.toString(id));
 			return new ResponseEntity<>(result, HttpStatus.NOT_FOUND);
