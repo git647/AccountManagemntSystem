@@ -48,5 +48,26 @@ public class UserLoginServiceImpl implements UserLoginService {
 	    User newUser = new User(userId,password,roleRepository.findById(1));
 		return newUser;
 	}
+	
+	public ResponseEntity<Object> updateUserCredential(String userId, String password) {
+		User user1 = userLoginRepository.findUserByUserId(userId);
+		HashMap<String,String> result = new HashMap<String, String>();
+		if (user1 == null){
+			result.put("message","User Not Found");
+			return new ResponseEntity<>(result,HttpStatus.NOT_FOUND);
+		}
+		else if(user1.isFirstTime()==true){
+			user1.setPassword(password);
+			user1.setFirstTime(false);
+			userLoginRepository.save(user1);
+			result.put("message","Credentials Updated");
+			return new ResponseEntity<>(result,HttpStatus.OK);
+		}
+		else {
+			result.put("message","You have already updated your password");
+			return new ResponseEntity<>(result,HttpStatus.BAD_REQUEST);
+		}
+		
+	}
 
 }
