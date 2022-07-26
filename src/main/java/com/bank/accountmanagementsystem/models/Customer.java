@@ -12,6 +12,12 @@ import javax.persistence.Lob;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
+/**
+ * entity class for Customer database table
+ * @author dakshin
+ *
+ */
+
 @Entity
 public class Customer {
 	@SequenceGenerator(name="seq", initialValue=100000, allocationSize=1)
