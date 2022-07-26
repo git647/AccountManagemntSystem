@@ -24,6 +24,11 @@ public class UserLoginServiceImpl implements UserLoginService {
 	@Autowired
 	UserLoginRepository userLoginRepository;
 	
+	/**
+	 * verifyUserCredential ( verify user name and pasword )
+	 * @author khushbu mehta
+	 */
+	
 	CustomPasswordEncoder passwordEncoder = new CustomPasswordEncoder();
 	
 	public ResponseEntity<Object> verifyUserCredential(String userId, String password, int roleId) {

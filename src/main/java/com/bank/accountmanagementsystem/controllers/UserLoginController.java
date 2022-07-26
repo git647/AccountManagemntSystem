@@ -11,12 +11,26 @@ import org.springframework.web.bind.annotation.RestController;
 import com.bank.accountmanagementsystem.services.AccCreationEmailService;
 import com.bank.accountmanagementsystem.services.UserLoginService;
 
+/**
+ * UserLoginController contains all api endpoints for user functionalities.
+ * @author khushbu
+ */
+
 @RestController
 public class UserLoginController {
 
 	@Autowired
 	UserLoginService userLoginService;
 	
+	
+	/**
+	 * create a new user login for customer
+	 * 
+	 * @param userId
+	 * @param password
+	 * @param roleId
+	 * @return Valid User or not
+	 */
 	@PostMapping("api/user/user-login")
 	public ResponseEntity<Object> verifyUserCredential(@RequestParam(required = true) String userId, @RequestParam(required = true) String password, @RequestParam (required = true)int roleId )
 	{
