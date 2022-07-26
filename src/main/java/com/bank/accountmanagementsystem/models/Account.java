@@ -12,7 +12,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
-
+/**
+ * 
+ * entity class for Account database table
+ * @author Nishad
+ *
+ */
 @Entity
 public class Account {
 	@SequenceGenerator(name="seq1", initialValue=1000000000, allocationSize=1)

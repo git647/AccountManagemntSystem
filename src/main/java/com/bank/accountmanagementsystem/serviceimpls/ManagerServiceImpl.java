@@ -24,6 +24,10 @@ public class ManagerServiceImpl implements ManagerService{
 	@Autowired
 	private AccountRepository accountRepository;
 
+	/**
+	 * createNewAccount ( Create new customer saving account )
+	 * @author Nishad
+	 */
 	
 	public Account createNewAccount(int customerId) throws Exception{
 		Account account = new Account();

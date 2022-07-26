@@ -12,13 +12,26 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.bank.accountmanagementsystem.services.TransactionService;
 
+
+/**
+ * 
+ * @author shefali, muskan & shivam
+ *
+ */
 @RestController
 public class TransactionController {
 	
+	/**
+	 * transactionService (Contains details related to transaction table)
+	 */
 	@Autowired
 	TransactionService transactionService;
 
-//WITHDRAW -- shefali
+	/**
+	 * returns current balance of a particular customer
+	 * @param id
+	 * @return
+	 */
 	@RequestMapping("api/transaction/getCurrentBalance/{id}")
 	public Long getCurrentBalance(@PathVariable long id) {
 		
@@ -26,6 +39,12 @@ public class TransactionController {
 	    return currentBalance; 
 	}
 	
+	/**
+	 * performs withdraw transaction
+	 * @param id
+	 * @param amount
+	 * @return
+	 */
 	@GetMapping("api/transaction/withdraw/{id}/{amount}")
 	public Long updateCurrentBalance(@PathVariable long id, @PathVariable long amount) {
 		
@@ -33,8 +52,13 @@ public class TransactionController {
 	    return currentBalance;
 	}
 	
-//DEPOSIT -- muskan
-	
+
+	/**
+	 * performs deposit transaction
+	 * @param depositID
+	 * @param amount
+	 * @return
+	 */
 	@PostMapping("api/transaction/deposit/{depositID}/{amount}")
 	public String DepositMoney(@PathVariable long depositID,@PathVariable double amount)
 	{
@@ -42,20 +66,33 @@ public class TransactionController {
 	}
 	
 	
-//TRANSFER -- shivam
+	/**
+	 * Transfer money from one user to another user
+	 * @param transferData
+	 * @return
+	 */
 	@PostMapping(value = "api/transaction/transfer",consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.TEXT_PLAIN_VALUE)
 	public String transferMoney(@RequestBody TransferData transferData)
 	{	
 		return transactionService.Transfer(transferData.getSenderId(),transferData.getAmount(),transferData.getRecieverId());
 	}
 	
+	/**
+	 * Gets the recent transaction history
+	 * @param accountNum
+	 * @return
+	 */
 	@GetMapping("api/transaction/recent")
 	public String checkHistory(long accountNum)
 	{
 		return transactionService.checkHistory(accountNum);
 	}
 	
-//Transfer Data
+	/**
+	 * 
+	 * @author  shivam
+	 *
+	 */
 	public static class TransferData{
 		private long senderId;
 		private double amount;
