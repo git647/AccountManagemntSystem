@@ -20,7 +20,11 @@ import com.bank.accountmanagementsystem.models.User;
 import com.bank.accountmanagementsystem.services.AccCreationEmailService;
 import com.bank.accountmanagementsystem.services.ManagerService;
 import com.bank.accountmanagementsystem.services.UserLoginService;
-
+import com.bank.accountmanagementsystem.constants.SystemConstants;
+/**
+ * ManagerController contains all api endpoints for manager functionalities.
+ *
+ */
 @RestController
 public class ManagerController {
 
@@ -33,7 +37,21 @@ public class ManagerController {
 	@Autowired
 	UserLoginService userLoginService;
 
-	@PostMapping("api/manager/create-customer")
+	/**
+	 * create a new online account for customer
+	 * @author dakshin
+	 * 
+	 * @param panCard
+	 * @param aadharNumber
+	 * @param name
+	 * @param postalAddress
+	 * @param email
+	 * @param dob
+	 * @param panImg
+	 * @param aadharImg
+	 * @return customerId
+	 */
+	@PostMapping(SystemConstants.CREATE_ONLINE_ACCOUNT)
 	public ResponseEntity<Object> createCustomer(@RequestParam(value = "pan_number") String panCard,
 			@RequestParam(value = "aadhar_number") long aadharNumber, @RequestParam(value = "name") String name,
 			@RequestParam(value = "postal_address") String postalAddress, @RequestParam(value = "email") String email,
@@ -89,7 +107,14 @@ public class ManagerController {
 		return new ResponseEntity<>(resultSet, HttpStatus.OK);
 	}
 
-	@PostMapping("api/manager/create-account")
+	/**
+	 * Create savings account for a particular customer
+	 * @author nishad
+	 * 
+	 * @param customerId
+	 * @return accountNumber
+	 */
+	@PostMapping(SystemConstants.CREATE_SAVING_ACCOUNT)
 	public ResponseEntity<Object> createAccount(@RequestParam(value = "customer_id") int customerId) {
 		HashMap<String, String> resultSet = new HashMap<String, String>();
 		try {
@@ -104,7 +129,13 @@ public class ManagerController {
 		return new ResponseEntity<>(resultSet, HttpStatus.OK);
 	}
 
-	@GetMapping("api/manager/verify-pancard")
+	/**
+	 * @author shreyash
+	 * 
+	 * @param panCardNumber
+	 * @return account already exists or not
+	 */
+	@GetMapping(SystemConstants.VERIFY_PANCARD)
 	public ResponseEntity<Object> verifyIfPanCardExistss(@RequestParam(required = true) String panCardNumber) {
 		return managerService.verifyPanCard(panCardNumber);
 	}
