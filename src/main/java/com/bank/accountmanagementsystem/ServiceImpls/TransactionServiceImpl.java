@@ -27,7 +27,7 @@ public class TransactionServiceImpl implements TransactionService {
 	@Override
 	public String Deposit(long depositID, double amount) {
 	
-		Account depositor=accountRepo.getById(depositID);
+		Account depositor=accountRepo.getReferenceById(depositID);
 		
 		Transaction transaction = new Transaction();
 		transaction.setTransactionAmount(amount);
@@ -96,7 +96,7 @@ public class TransactionServiceImpl implements TransactionService {
 		}
 		@Override
 		public Long getCurrentBalance(long accountNumber) {
-			Account account = accountRepo.getById(accountNumber);
+			Account account = accountRepo.getReferenceById(accountNumber);
 			Long currentBalance = (long) account.getCurrentBalance();
 			return currentBalance;
 		}
@@ -105,7 +105,7 @@ public class TransactionServiceImpl implements TransactionService {
 	public Long DeductMoney(long accountNumber, Long amountToWithdraw) { 
 		
 
-			Account account = accountRepo.getById(accountNumber);
+			Account account = accountRepo.getReferenceById(accountNumber);
 			
 			if (! (checkLimit10000(accountNumber, amountToWithdraw)) ) {
 				throw new MaxWithdrawalLimitExceededException();
@@ -135,7 +135,7 @@ public class TransactionServiceImpl implements TransactionService {
 	@Override
 	public boolean checkLimit10000(long accountNumber, Long amountToWithdraw) {
 			
-			Account account = accountRepo.getById(accountNumber);
+			Account account = accountRepo.getReferenceById(accountNumber);
 			List<Transaction> transactionList = account.getTransactions();
 			
 			int today = LocalDateTime.now().getDayOfMonth();
@@ -161,7 +161,7 @@ public class TransactionServiceImpl implements TransactionService {
 
 	Transaction Transfer(double amountToWithdraw, long accountNumber) {
 			
-	    	Account account = accountRepo.getById(accountNumber);
+	    	Account account = accountRepo.getReferenceById(accountNumber);
 	    	Transaction transaction = new Transaction();
 			transaction.setTransactionAmount(-amountToWithdraw);
 		//	transaction.setCurrentBalance(reciever.getCurrentBalance() + amount);
@@ -187,8 +187,8 @@ public class TransactionServiceImpl implements TransactionService {
 	@Override
 	public String Transfer(long senderId, double amount, long recieverId) {
 		
-		Account sender = accountRepo.getById(senderId) ;
-		Account reciever = accountRepo.getById(recieverId);
+		Account sender = accountRepo.getReferenceById(senderId) ;
+		Account reciever = accountRepo.getReferenceById(recieverId);
 		
 		if(sender.getCurrentBalance() < amount)
 			return "Insufficient balance";
@@ -241,7 +241,7 @@ public class TransactionServiceImpl implements TransactionService {
 	
 	@Override
 	public String checkHistory(long accountNum) {
-		Account account = accountRepo.getById(accountNum);
+		Account account = accountRepo.getReferenceById(accountNum);
 		List<Transaction> transactionList = account.getTransactions();
 		
 		int sizeOfList = transactionList.size();
@@ -271,7 +271,7 @@ public class TransactionServiceImpl implements TransactionService {
 		saveAndNotify(account, transaction);
 	}
 	Transaction GenerateRef(Account account) {
-		List<Transaction> transactions = accountRepo.getById(account.getAccountNumber()).getTransactions();
+		List<Transaction> transactions = accountRepo.getReferenceById(account.getAccountNumber()).getTransactions();
 		return transactions.get(transactions.size() - 1);
 	}
 	void saveAndNotify(Account account,Transaction transaction) {
