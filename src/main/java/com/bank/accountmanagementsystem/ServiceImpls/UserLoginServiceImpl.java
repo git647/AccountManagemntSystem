@@ -27,18 +27,32 @@ public class UserLoginServiceImpl implements UserLoginService {
 	CustomPasswordEncoder passwordEncoder = new CustomPasswordEncoder();
 	
 	public ResponseEntity<Object> verifyUserCredential(String userId, String password, int roleId) {
-
-		User user = userLoginRepository.findUserByUserIdAndPassword(userId, password);
-		User user1 = userLoginRepository.findUserByUserIdAndRoleRoleId(userId, roleId);
 		HashMap<String,String> result = new HashMap<String, String>();
-		if (user != null && user1 != null) {
-				result.put("message","Valid User");
-				return new ResponseEntity<>(result,HttpStatus.OK);
-		} 
-		else {
+		try {
+			User user = userLoginRepository.findUserByUserIdAndPassword(userId, password);
+			System.out.println("hello world");
+			System.out.println(user.isFirstTime());
+			User user1 = userLoginRepository.findUserByUserIdAndRoleRoleId(userId, roleId);
+			
+			if (user != null && user1 != null) {
+				if(user.isFirstTime() == false) {
+					result.put("message","Valid User");
+					return new ResponseEntity<>(result,HttpStatus.OK);
+				} else {
+					result.put("message", "Please change your password");
+					return new ResponseEntity<>(result, HttpStatus.UNAUTHORIZED);
+				}
+			} 
+			else {
+				result.put("message","Invalid User");
+				return new ResponseEntity<>(result, HttpStatus.UNAUTHORIZED);
+			}
+		} catch(Exception e) {
+			System.out.println("Invalid User");
 			result.put("message","Invalid User");
 			return new ResponseEntity<>(result, HttpStatus.UNAUTHORIZED);
 		}
+		
 
 	}
 
