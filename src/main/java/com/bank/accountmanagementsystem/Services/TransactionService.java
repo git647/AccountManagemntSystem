@@ -1,9 +1,9 @@
-package com.bank.accountmanagement.Service;
+package com.bank.accountmanagementsystem.Services;
 
 import org.springframework.stereotype.Component;
 
-import com.bank.accountmanagement.Models.Account;
-import com.bank.accountmanagement.Models.Transaction;
+import com.bank.accountmanagementsystem.Models.Account;
+import com.bank.accountmanagementsystem.Models.Transaction;
 
 @Component
 public interface TransactionService {

@@ -1,10 +1,10 @@
-package com.bank.accountmanagement.Services;
+package com.bank.accountmanagementsystem.Services;
 
 import java.util.List;
 
-import com.bank.accountmanagement.Models.Transaction;
+import com.bank.accountmanagementsystem.Models.Transaction;
 
-public interface Transactionstatementservice {
+public interface TransactionStatementService {
 	
 	 
 	List<Transaction> findTransactionList(long accountNumber);
