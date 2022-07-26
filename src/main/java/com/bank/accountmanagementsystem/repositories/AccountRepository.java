@@ -8,6 +8,11 @@ import org.springframework.stereotype.Repository;
 
 import com.bank.accountmanagementsystem.models.Account;
 
+/**
+ * 
+ * @author Nishad
+ *
+ */
 @Repository
 public interface AccountRepository extends JpaRepository<Account, Long> {
 	
