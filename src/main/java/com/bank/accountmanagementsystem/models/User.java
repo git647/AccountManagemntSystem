@@ -4,6 +4,12 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+/** 
+ * entity class for User database table
+ * @author dakshin
+ *
+ */
+
 @Entity
 public class User {
 	

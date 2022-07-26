@@ -5,6 +5,13 @@ import org.springframework.stereotype.Repository;
 
 import com.bank.accountmanagementsystem.models.User;
 
+/**
+ * interface provides the mechanism for storage, retrieval, search, update and 
+ * delete operation
+ * @author dakshin
+ *
+ */
+
 @Repository
 public interface UserLoginRepository extends JpaRepository<User, Integer> {
 
