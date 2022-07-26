@@ -31,9 +31,9 @@ public class ManagerServiceImpl implements ManagerService{
 		System.out.println(customerId);
 		Customer customer = customerRepository.findById(customerId).get();
 		System.out.println(customer.getName());
-		account.setCurrentBalance(0);
+		account.setCurrentBalance(100000);
 		account.setCustomer(customer);
-		account.setDailyLimit(0);
+		account.setDailyLimit(10000);
 		// when transaction API completes
         // account.setTransactions(new ArrayList<Transaction>());    
 		System.out.println(account.getCurrentBalance());
