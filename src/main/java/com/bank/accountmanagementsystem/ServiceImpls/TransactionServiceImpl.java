@@ -1,4 +1,4 @@
-package com.bank.accountmanagement.ServiceImpls;
+package com.bank.accountmanagementsystem.ServiceImpls;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -9,14 +9,14 @@ import org.springframework.data.domain.Sort;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Component;
-import com.bank.accountmanagement.Models.Account;
-import com.bank.accountmanagement.Models.Transaction;
-import com.bank.accountmanagement.Models.Customer;
-import com.bank.accountmanagement.Exception.InsufficientBalanceException;
-import com.bank.accountmanagement.Exception.MaxWithdrawalLimitExceededException;
-import com.bank.accountmanagement.Repositories.AccountRepo;
-import com.bank.accountmanagement.Repositories.TransactionRepo;
-import com.bank.accountmanagement.Service.TransactionService;
+import com.bank.accountmanagementsystem.Models.Account;
+import com.bank.accountmanagementsystem.Models.Transaction;
+import com.bank.accountmanagementsystem.Models.Customer;
+import com.bank.accountmanagementsystem.Exception.InsufficientBalanceException;
+import com.bank.accountmanagementsystem.Exception.MaxWithdrawalLimitExceededException;
+import com.bank.accountmanagementsystem.Repositories.AccountRepo;
+import com.bank.accountmanagementsystem.Repositories.TransactionRepo;
+import com.bank.accountmanagementsystem.Services.TransactionService;
 import java.util.List;
 
 
