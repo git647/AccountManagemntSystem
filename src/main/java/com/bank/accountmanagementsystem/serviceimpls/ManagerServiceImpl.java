@@ -44,6 +44,11 @@ public class ManagerServiceImpl implements ManagerService{
 		return account;
 	}
 
+	/**
+	 * method to create a customer account save it to db
+	 * @author dakshin
+	 */
+	
 	public Customer createNewCustomer(Customer customer) throws Exception{
 		try {
 			customer = customerRepository.save(customer);
