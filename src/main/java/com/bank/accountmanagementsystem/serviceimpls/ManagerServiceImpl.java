@@ -49,7 +49,7 @@ public class ManagerServiceImpl implements ManagerService{
 	}
 
 	/**
-	 * method to create a customer account save it to db
+	 * method to create a customer account and save it to db
 	 * @author dakshin
 	 */
 	
@@ -70,6 +70,9 @@ public class ManagerServiceImpl implements ManagerService{
 		HashMap<String,String> result = new HashMap<String, String>();
 		if(customer != null)
 		{
+			long customerId = customer.getCustomerId();
+			String custId = String.valueOf(customerId);
+			result.put("customer ID", custId);
 			result.put("message","Account exists");
 			return new ResponseEntity<>(result,HttpStatus.OK);
 		}
