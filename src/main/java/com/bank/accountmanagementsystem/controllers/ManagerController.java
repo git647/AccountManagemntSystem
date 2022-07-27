@@ -133,7 +133,7 @@ public class ManagerController {
 	 * @author shreyash
 	 * 
 	 * @param panCardNumber
-	 * @return account already exists or not
+	 * @return account already exists or not and customerId
 	 */
 	@GetMapping(SystemConstants.VERIFY_PANCARD)
 	public ResponseEntity<Object> verifyIfPanCardExistss(@RequestParam(required = true) String panCardNumber) {
