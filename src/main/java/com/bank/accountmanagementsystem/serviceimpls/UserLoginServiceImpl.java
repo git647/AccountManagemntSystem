@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import com.bank.accountmanagementsystem.models.User;
 import com.bank.accountmanagementsystem.repositories.RoleRepository;
 import com.bank.accountmanagementsystem.repositories.UserLoginRepository;
-import com.bank.accountmanagementsystem.serviceimpls.CustomPasswordEncoder;
+//import com.bank.accountmanagementsystem.serviceimpls.CustomPasswordEncoder;
 import com.bank.accountmanagementsystem.services.UserLoginService;
 
 
