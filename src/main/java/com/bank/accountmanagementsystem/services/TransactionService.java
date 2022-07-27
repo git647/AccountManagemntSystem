@@ -1,5 +1,7 @@
 package com.bank.accountmanagementsystem.services;
 
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 
 import com.bank.accountmanagementsystem.models.Account;
@@ -24,5 +26,5 @@ public interface TransactionService {
 	public void sendEmail(Account account, Transaction transaction); 
 	
 	//Recent Transactions
-	public String checkHistory(long accountNum);
+	public List<Transaction> checkHistory(long accountNum);
 }

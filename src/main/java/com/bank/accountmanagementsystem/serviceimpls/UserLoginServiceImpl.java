@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import com.bank.accountmanagementsystem.models.User;
 import com.bank.accountmanagementsystem.repositories.RoleRepository;
 import com.bank.accountmanagementsystem.repositories.UserLoginRepository;
-import com.bank.accountmanagementsystem.serviceimpls.CustomPasswordEncoder;
+//import com.bank.accountmanagementsystem.serviceimpls.CustomPasswordEncoder;
 import com.bank.accountmanagementsystem.services.UserLoginService;
 
 
@@ -23,6 +23,11 @@ public class UserLoginServiceImpl implements UserLoginService {
 	
 	@Autowired
 	UserLoginRepository userLoginRepository;
+	
+	/**
+	 * verifyUserCredential ( verify user name and pasword )
+	 * @author khushbu mehta
+	 */
 	
 	CustomPasswordEncoder passwordEncoder = new CustomPasswordEncoder();
 	

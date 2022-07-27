@@ -242,9 +242,10 @@ public class TransactionServiceImpl implements TransactionService {
 		}
 	
 	@Override
-	public String checkHistory(long accountNum) {
+	public List<Transaction> checkHistory(long accountNum) {
 		Account account = accountRepo.getReferenceById(accountNum);
 		List<Transaction> transactionList = account.getTransactions();
+		
 		
 		int sizeOfList = transactionList.size();
 		
@@ -255,13 +256,16 @@ public class TransactionServiceImpl implements TransactionService {
 			System.out.println(transactionList.get(sizeOfList-3).toString());
 			System.out.println(transactionList.get(sizeOfList-4).toString());
 			System.out.println(transactionList.get(sizeOfList-5).toString());
-			return "Fetched history";
+//			return "Fetched history";
+			return transactionList;
 		}
 		else {
 			for(Transaction transaction : transactionList) {
 				System.out.println(transaction.toString());
 			}
-			return "Fetched history";
+//			transactionList.add(null);
+//			return "Fetched history";
+			return transactionList;
 		}
 		//return "Unable to fetch history";
 	}
