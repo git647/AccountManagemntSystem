@@ -142,25 +142,30 @@ public class TransactionServiceImpl implements TransactionService {
 			
 			int today = LocalDateTime.now().getDayOfMonth();
 			
+			double currentDailyLimit = 0;
+			
 			for(Transaction transaction : transactionList) {
-				System.out.println("DATE TIME -> "+transaction.getDateTime().getDayOfMonth());
-				System.out.println("LIMIT - " + account.getDailyLimit());
 				if(today == transaction.getDateTime().getDayOfMonth()) {
-					if(transaction.getTransactionType().equals("Withdrawal"))
+					if(transaction.getSubType().equals("Withdrawal"))
 					{
-						account.setDailyLimit(account.getDailyLimit() + transaction.getTransactionAmount());
+						currentDailyLimit = currentDailyLimit + Math.abs(transaction.getTransactionAmount());
 					}
-				}else {
-					account.setDailyLimit(0.0);
 				}
 			}
-			if(account.getDailyLimit() - amountToWithdraw < -10000) {
+			
+			int parseCurrentDailyLimit = (int) currentDailyLimit;
+			
+			if(parseCurrentDailyLimit >= account.getDailyLimit()) {
+				System.out.println("cannot withdraw");
+				return false;
+			}else if(account.getDailyLimit() - amountToWithdraw >= 0 ) {
+				System.out.println("can withdraw");
+				return true;
+			}else {
+				System.out.println("cannot withdraw1");
 				return false;
 			}
-			account.setDailyLimit(account.getDailyLimit() - amountToWithdraw);
-			return true;
-			}
-
+	}
 	Transaction Transfer(double amountToWithdraw, long accountNumber) {
 			
 	    	Account account = accountRepo.getReferenceById(accountNumber);
